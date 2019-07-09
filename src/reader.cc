@@ -51,8 +51,8 @@ static void *createString(const redisReadTask *task, char *str, size_t len) {
     Reader *r = reinterpret_cast<Reader*>(task->privdata);
     Local<Value> v(r->createString(str,len));
 
-    if (task->type == REDIS_REPLY_ERROR)
-        v = Exception::Error(v->ToString());
+    //if (task->type == REDIS_REPLY_ERROR)
+    //    v = Exception::Error(v->ToString());
     return tryParentize(task,v);
 }
 
